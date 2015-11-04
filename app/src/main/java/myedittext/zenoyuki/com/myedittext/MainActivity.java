@@ -8,8 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText myEditText;
+    private TextView showMyName;
+    private Button showButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        myEditText = (EditText)findViewById(R.id.editText);
+        showMyName = (TextView)findViewById(R.id.textView);
+        showButton = (Button)findViewById(R.id.button);
+
+        showButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                showMyName.setText(String.valueOf(myEditText.getText()));
             }
         });
     }
